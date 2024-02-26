@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Magiczne Kwadraciki 0o0</title>
+</head>
+    <body>
+        <div class="Panel">
+
+            <input type="number" id="ile" placeholder="Wpisz ile Kwadracików"></input>
+
+            <input type="number" id="a" placeholder="Wpisz szerokość w px"></input>
+            <input type="number" id="b" placeholder="Wpisz wysokość w px"></input>
+
+            <input type="number" id="R" placeholder="Wpisz wartość czerwonego" max="255"></input>
+            <input type="number" id="G" placeholder="Wpisz wartość zielonego" max="255"></input>
+            <input type="number" id="B1" placeholder="Wpisz wartość niebieskiego" max="255"></input>
+
+            <button onclick="GenerujMagiczneKwadraty()">Generuj</button>
+
+        </div>
+        
+        <div id="licznik">licznik</div>
+
+        <main id="main" style="width: 1650px; display: flex; flex-wrap: wrap;"></main>
+
+        <script>
+
+                function GenerujMagiczneKwadraty(){
+
+                    document.getElementById("main").textContent = "";
+
+                    var ile = parseInt(document.getElementById('ile').value);
+
+                    var a = parseInt(document.getElementById('a').value);
+                    var b = parseInt(document.getElementById('b').value);
+                    var r = parseInt(document.getElementById('R').value);
+                    var g = parseInt(document.getElementById('G').value);
+                    var b1 = parseInt(document.getElementById('B1').value);
+                    var licznik = 0;
+                    for(var i = 0; i < ile; i++, r++, g++, b1++){
+
+                    var element = document.createElement("div");
+                    element.style.height = a + "px";
+                    element.style.width = b + "px";
+                    element.style.backgroundColor = "red";
+                    element.style.margin = "10px";
+                    element.style.backgroundColor = 'rgb(' + r + ',' + g + ',' + b1 +')';
+                    element.textContent = i + 1;
+                    element.style.border = "ridge 5px lawngreen";   
+                    document.getElementById("main").appendChild(element)
+                    if(i%7 == 0){
+                        element.style.borderRadius = "50%";
+                        licznik++
+                    }
+                    document.getElementById("licznik").innerText = licznik;
+                    }
+                }
+
+        </script>
+
+    </body>
+</html>
