@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+    <body>
+
+        <input type="number" div id="number" placeholder="wpisz potenge">
+        <input type="number" div id="number1" placeholder="wpisz ilosc liczb">
+        <div id="wynik">Wynik:</div>
+        <button onclick="Potengowanie()">Klikej</button>
+
+        <script>
+
+            function Potengowanie(liczba1, liczba2){
+                let tablica = new Array(liczba2);
+                var liczba1 = document.getElementById("number").value
+                var liczba2 = document.getElementById("number1").value
+
+                for(let i=0; i<liczba2; i++){
+                    tablica[i] = Math.pow(liczba1, i)
+                }
+                console.log(tablica)
+                document.getElementById("wynik").textContent = tablica;
+            }
+
+        </script>
+    </body>
+</html>
